@@ -1,4 +1,4 @@
-from . import db, ma
+from . import db
 from datetime import datetime
 
 class Post(db.Model):
@@ -9,10 +9,11 @@ class Post(db.Model):
     description = db.Column(db.String(300))
     posted = db.Column(db.DateTime,default=datetime.utcnow)
 
-    def __init__(self,  title, description, posted):
+    def __init__(self,  title, description, posted, summary):
         self.description = description
         self.posted = posted
         self.title = title
+        self.summary = summary
 
 
     def __repr__(self):
@@ -23,6 +24,6 @@ class Post(db.Model):
         db.session.add(self)
         db.session.commit()
 
-class PitchSchema(ma.Schema):
-    class Meta:
-        fields = ('id', 'title', 'description', 'posted')
+# class PitchSchema(ma.Schema):
+#     class Meta:
+#         fields = ('id', 'title', 'description', 'summary', 'posted')
