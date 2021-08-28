@@ -4,11 +4,13 @@ from wtforms import StringField,SubmitField, TextAreaField, SelectField
 from wtforms.fields.simple import FileField
 from wtforms.validators import Required
 
-class PostForm(FlaskForm):
+class blogPostsForm(FlaskForm):
     title = StringField('Post title',validators=[Required()])
 
-    summary = StringField('Summary of the post')
+    summary = StringField('Summary of the post',validators=[Required()] )
 
-    description = TextAreaField('Enter the post')
+    post = TextAreaField('Enter the post details', validators=[Required()])
+
+    image = StringField('Enter Image link', validators=[Required()])
 
     submit = SubmitField('Submit')

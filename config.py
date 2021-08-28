@@ -5,10 +5,11 @@ class Config:
     '''
     General class configurations
     '''
-    BOOKS_API_BASE_URL= 'https://www.googleapis.com/books/v1/volumes?q={}'
+    BASE_URL= 'https://leresi-blog-api.herokuapp.com/main{}'
+    # BASE_URL='http://127.0.0.1:4000/main{}'
  
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://leresipitchdb:pitchidea@localhost/pitches'
+    SECRET_KEY = os.urandom(12)
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://leresipitchdb:pitchidea@localhost/pitches'
   
 
     

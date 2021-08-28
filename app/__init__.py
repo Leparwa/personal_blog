@@ -28,12 +28,11 @@ def create_app(config_name):
 
 
         #Register auth blueprint
-        # from .auth import auth as auth_blueprint
-        # app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+        from .user import user as user_blueprint
+        app.register_blueprint(user_blueprint,url_prefix = '/user')
     
         # # Configure request   
-        from .requests import configure_request
+        from .request import configure_request
         configure_request(app)
 
-        db.create_all()
     return app

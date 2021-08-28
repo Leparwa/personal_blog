@@ -1,28 +1,19 @@
-from . import db
-from datetime import datetime
 
-class Post(db.Model):
-    __tablename__ = 'user_posts'
-    id = db.Column(db.Integer,primary_key = True)
-    title = db.Column(db.String(20))
-    summary = db.Column(db.String(20))
-    description = db.Column(db.String(300))
-    posted = db.Column(db.DateTime,default=datetime.utcnow)
-
-    def __init__(self,  title, description, posted, summary):
-        self.description = description
-        self.posted = posted
-        self.title = title
+import json
+class Post():
+    def __init__(self,  title, image, summary, post, author, author_id):
         self.summary = summary
+        self.image = image
+        self.post = post
+        self.title = title
+        self.author = author
+        self.author_id = author_id
+
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, 
+            sort_keys=True, indent=4)
 
 
-    def __repr__(self):
-        return f'Pitch {self.id}'
-    
-   
-    def save_pitch(self):
-        db.session.add(self)
-        db.session.commit()
 
 # class PitchSchema(ma.Schema):
 #     class Meta:
