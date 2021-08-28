@@ -27,6 +27,6 @@ def get_posts(endpoint):
         if response['data']:
             # results_list = response['data']
             results = response['data']
-           
+    print(results)           
             # results = process_pitches(results_list)  
     return results
