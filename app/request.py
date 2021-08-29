@@ -25,6 +25,13 @@ def get_posts(endpoint):
             results = response['data']
     return results
 
+def get_one_post(endpoint):
+    url = base_url.format(endpoint)
+    result = requests.get(url).json()
+    if result['todo']:
+        post = result['todo']
+    return post
+
 def get_random_quote():
     quote_url ='http://quotes.stormconsultancy.co.uk/random.json'
     quote = requests.get(quote_url).json()

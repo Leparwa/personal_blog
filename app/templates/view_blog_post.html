@@ -1,0 +1,49 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-lg-8 col-md-12 left-box">
+            <div class="card single_post">
+                <div class="body">
+                    <div class="img-post">
+                        {% if post.image %}
+                        <img class="d-block img-fluid" src="{{post.image}}" alt="image">
+                        {% elif post.image !='.jpg' %}
+                        <img class="d-block img-fluid" src="https://via.placeholder.com/800x280/FFB6C1/000000" alt="image">
+                        {% endif %}
+                    </div>
+                    <h3><a href="blog-details.html">{{post.title}}</a></h3>
+                    <p>{{post.post}}</p>
+                </div>
+            </div> 
+        </div>
+        <div class="col-lg-4 col-md-12 right-box">
+            <div class="card">
+                <div class="body search">
+                    <div class="input-group m-b-0">
+                      
+                        <input type="text" class="form-control" placeholder="leave a comment">     
+                            <button class="btn btn-primary btn-group-sm ml-2">comment</button>
+                               
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="body widget popular-post">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>Post summary</h2>                        
+                            <div class="single_post">
+                                <p class="m-b-0"><i><strong>{{post.summary}}</strong></i></p>
+                                <span><i><strong>author:  {{post.author}}</strong></i></span> <br>                   
+                                <span><i><strong>posted:  {{post.posted}}</strong></i></span>                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
